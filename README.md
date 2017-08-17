@@ -1,9 +1,6 @@
-# Porter-Gaud Schedule App
-[![Build Status](https://travis-ci.org/ireallydontcare/pg-schedule.svg?branch=master)](https://travis-ci.org/ireallydontcare/pg-schedule)
+# Academic Magnet Schedule App
 
-**Available on http://schedule.portergaud.edu/**
-
-A webapp that keeps track of the [Porter-Gaud](portergaud.edu) Schedule so you don't have to.
+A webapp that keeps track of the [Magnet](amhs.ccsdschools.com) Schedule so you don't have to.
 
 # Table of Contents
 
@@ -14,7 +11,6 @@ A webapp that keeps track of the [Porter-Gaud](portergaud.edu) Schedule so you d
     + [Prerequisites](#prerequisites)
     + [The App](#the-app)
       - [Controller](#controller)
-        * [Middle School](#middle-school)
         * [Future Weeks](#future-weeks)
           + [Alternate Schedules](#alternate-schedules)
         * [Manage](#manage)
@@ -57,9 +53,6 @@ For example, the raw schedule data lives in `/app/model/schedule.js` and is pull
 A special schedule PDF uploaded by a user in Manage will override the schedule for the day.
 
 *Hint: The system of separating the data, the frontend, and the controller code that links them is a very common style of creating apps known as Model-View-Controller, or [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller), and is worth a look into if you are interested in software development (especially mobile development).  The next sections of this README will talk about the Model and View aspects of the app.*
-
-##### Middle School
-PG-Schedule contains data for both Upper and Middle School (stored in the model directory- more information on the specifics below).  As of the 2017-18 school year, Middle School no longer has A/B weeks, so internally, all middle school weeks are referenced as A weeks.
 
 ##### Future Weeks
 The app figures out what week it currently is (A/B) from the portergaud.edu calendar.  Using a cron task set to run daily, it pulls the official list of events for the day and searches for a reference to the current week (i.e. the string 'A Week' or 'Week A' for A weeks).  If unable to find this (due to administrator error), the app defaults to an A week.
@@ -244,6 +237,11 @@ On a personal note, I'm excited to see where this project goes in the future, ev
 The "Project Team" is by no means an exclusive list.  To be added to the Project Team list, make some form of contribution to the project (it doesn't *have* to be a code contribution) or just show genuine interest in developing something using the API, and if you are not added immidiately, let a team member know and he/she will add you.
 
 Those on the project team have direct access to the PG-Schedule GitHub project, meaning they can push contributions without creating a fork or undergoing the pull request review process.  Additionally, team members can approve pull requests and act as an official member of Issues.  As stated previously, access to specific services (Heroku, Google Cloud, database) is given out on a case-by-case basis within the team decided by the project lead and advisor.
+
+### Magnet Members
+| Name             | Role          | Email                      |
+| ---------------- |:-------------:| --------------------------:|
+| Daniel Killough  | Contributor   | kildan3551@ccsdschools.com |
 
 ### Former Members
 | Name             | Role          | Graduating Class | Twitter |
