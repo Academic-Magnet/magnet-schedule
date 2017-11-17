@@ -1,7 +1,7 @@
 doctype html
 html(ng-app='pgSchedule' lang='en')
   head
-    title Porter-Gaud Schedule
+    title Academic Magnet Schedule
     meta(name='theme-color' content='red')
     meta(name='apple-mobile-web-app-capable' content='yes')
     link(rel="mask-icon" href="pg.svg" color="red")
@@ -13,17 +13,12 @@ html(ng-app='pgSchedule' lang='en')
     link(ng-if='nightMode', rel='stylesheet', href='/css/nm.min.css')
     link(ng-if='!nightMode', rel='stylesheet', href='/css/all.min.css')
 
-    h1(style="font-size: 350%;") Porter-Gaud&nbsp;
-      if upper
-        | Upper School Schedule
-      else
-        | Middle School Schedule
+    h1(style="font-size: 350%;") Academic Magnet Schedule
     hr
     .alert.alert-info.ng-cloak(ng-if='announcement')
       | {{ announcement.text }}
 
     h2.ng-cloak {{day.toString().substring(0, 15)}}
-      if upper
         |&nbsp;| {{week}}
     h3.ng-cloak(ng-if='!weekend') {{dateString}}
     h2.ng-cloak(ng-if='weekend') Weekend
@@ -39,19 +34,13 @@ html(ng-app='pgSchedule' lang='en')
           td.ng-cloak {{cookies[class['name']] ? cookies[class['name']] : class['name']}}
           td.ng-cloak {{beautifyTime(class['start-time']) }}-{{beautifyTime(class['end-time'])}}
     br
-    button.btn.btn-danger(data-target='#addClasses' data-toggle='modal')
+    button.btn.btn-success(data-target='#addClasses' data-toggle='modal')
       h4 Add Classes
-    button.btn.btn-danger(ng-click='getLunchMenu()' data-target='#lunchMenu' data-toggle='modal' style="margin-left: 10px;")
-      h4 Lunch
-    //- a(href='http://www.myschooldining.com/portergaud/?cmd=menus' style='margin-left: 10px' target='_blank')
-    //-   button.btn.btn-danger
-    //-     h4 Lunch
-    if upper
-      a.btn.btn-danger(href='http://www.portergaud.edu/faculty-member/daily-announcements' target='_blank' style='margin-left: 10px')
-        h4 Announcements
-    else
-      a.btn.btn-danger(href='#' style='margin-left: 10px' disabled)
-        h4 Announcements
+    //- button.btn.btn-danger(ng-click='getLunchMenu()' data-target='#lunchMenu' data-toggle='modal' style="margin-left: 10px;")
+    //-   h4 Lunch
+    a(href='https://ccsdschools.com/divisions/operations/nutrition_services/school_menus/' style='margin-left: 10px' target='_blank')
+      button.btn.btn-success
+        h4 Lunch
     br
     br
     //- p
@@ -120,12 +109,6 @@ html(ng-app='pgSchedule' lang='en')
 
     footer(style="text-align: center;")
       p
-        if upper
-          a(href='/middle')
-           strong Switch to Middle School schedule
-        else
-          a(href='/')
-            strong Switch to Upper School schedule
         br
         a(href='#' ng-click='nightMode = !nightMode') Night Mode
         |  |&nbsp;
